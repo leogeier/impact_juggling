@@ -27,6 +27,8 @@ ScoreTracker="*res://Score/ScoreTracker.gd"
 
 window/size/width=480
 window/size/height=640
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 

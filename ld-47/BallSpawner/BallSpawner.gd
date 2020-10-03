@@ -1,6 +1,6 @@
 extends Node2D
 
-var queued_balls = 2
+var queued_balls = 0
 
 var Ball = preload("res://Ball/Ball.tscn")
 
@@ -9,11 +9,9 @@ func queue_ball():
 	attempt_ball_spawn()
 
 func attempt_ball_spawn():
-	if $SpawnPauseTimer.is_stopped():
+	if queued_balls > 0 and $SpawnPauseTimer.is_stopped():
 		spawn_ball()
 		queued_balls -= 1
-	
-	if queued_balls > 0:
 		$SpawnPauseTimer.start()
 
 func spawn_ball():

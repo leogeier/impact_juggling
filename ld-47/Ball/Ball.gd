@@ -6,7 +6,7 @@ export var max_speed = 12
 var velocity = Vector2()
 
 func _ready():
-	ScoreTracker.reset_score()
+	pass
 
 func reflect(dir, damp):
 	velocity = min(velocity.length() * damp, max_speed) * dir
