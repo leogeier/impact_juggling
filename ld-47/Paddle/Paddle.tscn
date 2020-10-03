@@ -7,9 +7,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.1176, 14.9174 )
 
-[node name="Paddle" type="StaticBody2D" groups=[
-"paddle",
+[node name="Paddle" type="KinematicBody2D" groups=[
+"reflectable",
 ]]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="icon" type="Sprite" parent="."]
