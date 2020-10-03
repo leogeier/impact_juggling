@@ -6,7 +6,6 @@ func ball_entered(node):
 	if !node.is_in_group("ball"):
 		return
 	
-	print("ball entered")
 	node.queue_free()
 	emit_signal("ball_entered")
 
