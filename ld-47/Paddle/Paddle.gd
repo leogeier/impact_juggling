@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
-export var max_speed = 500;
+export var max_speed = 300;
 export var decrease_damp = 0.8
 export var increase_damp = 1.2
 export var paddle_throw_time = 0.2
+export var rot_magn = 0.3
 
 var icon_pos_y setget set_icon_pos_y
+var icon_rot setget set_icon_rot
 
 var velocity = Vector2()
 var throw_offset = -20
@@ -13,6 +15,9 @@ var icon_orig_y
 
 func set_icon_pos_y(val):
 	$icon.position.y = val
+
+func set_icon_rot(val):
+	$icon.rotation = val
 
 func get_reflection_dir(_dir):
 	var dir = Vector2(0, 1).rotated($DirArrow.rotation)
@@ -38,6 +43,9 @@ func _physics_process(delta):
 		$ThrowTimer.start();
 		$ReturnTween.interpolate_property(self, "icon_pos_y", icon_orig_y + throw_offset, icon_orig_y, paddle_throw_time, Tween.TRANS_CIRC, Tween.EASE_OUT)
 		$ReturnTween.start()
+		
+		$ReturnRotTween.interpolate_property(self, "icon_rot", rand_range(-1, 1) * rot_magn, 0, paddle_throw_time, Tween.TRANS_CIRC, Tween.EASE_OUT)
+		$ReturnRotTween.start()
 	
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = max_speed
