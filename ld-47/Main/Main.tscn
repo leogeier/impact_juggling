@@ -7,7 +7,7 @@
 [ext_resource path="res://BallDetector/BallDetector.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main/Main.gd" type="Script" id=6]
 [ext_resource path="res://CollectibleSpawner/CollectibleSpawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://Main/heart.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 320 )
@@ -47,7 +47,7 @@ normal = 1
 shape = SubResource( 2 )
 
 [node name="ScoreDisplay" parent="." instance=ExtResource( 4 )]
-position = Vector2( 12.6186, 289.293 )
+position = Vector2( 45, 300 )
 
 [node name="BallDetector" parent="." instance=ExtResource( 5 )]
 position = Vector2( 240, 360 )
@@ -63,19 +63,19 @@ extent = Vector2( 100, 100 )
 [node name="Hearts" type="Node" parent="."]
 
 [node name="Heart1" type="Sprite" parent="Hearts"]
-position = Vector2( 221.735, 301.778 )
-scale = Vector2( 0.137104, 0.137104 )
+position = Vector2( 215, 300 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 8 )
 offset = Vector2( 0.412231, -3.64807 )
 
 [node name="Heart2" type="Sprite" parent="Hearts"]
-position = Vector2( 198.459, 301.958 )
-scale = Vector2( 0.137104, 0.137104 )
+position = Vector2( 190, 300 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 8 )
 offset = Vector2( 0.412231, -3.64807 )
 
 [node name="Heart3" type="Sprite" parent="Hearts"]
-position = Vector2( 176.266, 301.778 )
-scale = Vector2( 0.137104, 0.137104 )
+position = Vector2( 165, 300 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 8 )
 offset = Vector2( 0.412231, -3.64807 )
