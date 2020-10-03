@@ -6,7 +6,7 @@
 [ext_resource path="res://Score/ScoreDisplay.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BallDetector/BallDetector.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main/Main.gd" type="Script" id=6]
-[ext_resource path="res://Collectible/Collectible.tscn" type="PackedScene" id=7]
+[ext_resource path="res://CollectibleSpawner/CollectibleSpawner.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 320 )
@@ -54,5 +54,5 @@ position = Vector2( 240, 680 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetector"]
 shape = SubResource( 3 )
 
-[node name="Collectible" parent="." instance=ExtResource( 7 )]
-position = Vector2( 130.654, 205.878 )
+[node name="CollectibleSpawner" parent="." instance=ExtResource( 7 )]
+position = Vector2( 240, 240 )
