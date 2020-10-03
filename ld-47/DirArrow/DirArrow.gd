@@ -10,7 +10,6 @@ func _process(delta):
 	var arrow_pos = get_global_transform().xform(position)
 	
 	var angle
-	
 	# if the cursor is below the arrow, just clamp to the maximum
 	if mouse_pos.y > arrow_pos.y:
 		angle = clamp_deg * sign(mouse_pos.x - arrow_pos.x)
