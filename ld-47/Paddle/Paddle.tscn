@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.1176, 14.9174 )
 
-[node name="Paddle" type="Node2D" groups=[
+[node name="Paddle" type="StaticBody2D" groups=[
 "paddle",
 ]]
 script = ExtResource( 2 )
@@ -18,7 +18,5 @@ texture = ExtResource( 1 )
 
 [node name="DirArrow" parent="." instance=ExtResource( 3 )]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

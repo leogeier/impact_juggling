@@ -1,19 +1,18 @@
-extends Node2D
+extends StaticBody2D
 
 export var speed = 700;
 
-func add_ball(ball):
-	$Area2D.connect("body_entered", self, "ball_collision")
+var reflection_dir setget , get_reflection_dir
 
-func ball_collision(ball):
+func get_reflection_dir():
 	var dir = Vector2(0, 1).rotated($DirArrow.rotation)
 	dir *= -1
-	ball.reflect(dir)
+	return dir
 
 func _ready():
 	pass
 
-func _process(delta):
+func _physics_process(delta):
 	var pos_delta = speed * delta;
 	if Input.is_action_pressed("ui_right"):
 		position.x += pos_delta;
