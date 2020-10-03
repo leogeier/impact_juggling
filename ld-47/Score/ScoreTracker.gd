@@ -1,6 +1,6 @@
 extends Node
 
-var score
+var score = 0
 
 signal score_changed
 
