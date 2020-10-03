@@ -6,7 +6,7 @@ export var max_speed = 12
 var velocity = Vector2()
 
 func _ready():
-	pass
+	ScoreTracker.reset_score()
 
 func reflect(dir, damp):
 	velocity = min(velocity.length() * damp, max_speed) * dir
@@ -19,7 +19,8 @@ func _physics_process(delta):
 		var dir = collision.collider.get_reflection_dir(velocity.normalized())
 		var damp = collision.collider.get_damp()
 		reflect(dir, damp)
+		
+		if damp > 1:
+			ScoreTracker.add_score(10)
 	else:
 		velocity.y += gravity * delta
-	
-	print(velocity.length())
