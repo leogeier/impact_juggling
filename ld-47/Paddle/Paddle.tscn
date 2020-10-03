@@ -18,6 +18,10 @@ scale = Vector2( 0.469514, 0.229775 )
 texture = ExtResource( 1 )
 
 [node name="DirArrow" parent="." instance=ExtResource( 3 )]
+clamp_deg = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="ThrowTimer" type="Timer" parent="."]
+one_shot = true

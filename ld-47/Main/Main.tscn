@@ -18,12 +18,6 @@ position = Vector2( 240, 580 )
 [node name="Ball" parent="." instance=ExtResource( 2 )]
 position = Vector2( 240, 73.373 )
 
-[node name="Ball2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 139.318, 229.732 )
-
-[node name="Ball3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 335.115, 140.649 )
-
 [node name="Left Wall" parent="." instance=ExtResource( 3 )]
 position = Vector2( -10, 320 )
 

@@ -10,5 +10,8 @@ func get_reflection_dir(dir):
 		dir.y *= -1
 	return dir
 
+func get_damp():
+	return 1
+
 func _ready():
 	pass
