@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var max_speed = 700;
+export var max_speed = 500;
 export var decrease_damp = 0.8
 export var increase_damp = 1.2
 export var paddle_throw_time = 0.2
