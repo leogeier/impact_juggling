@@ -52,7 +52,7 @@ normal = 1
 shape = SubResource( 2 )
 
 [node name="ScoreDisplay" parent="." instance=ExtResource( 4 )]
-position = Vector2( 45, 300 )
+position = Vector2( 40, 299 )
 
 [node name="BallDetector" parent="." instance=ExtResource( 5 )]
 position = Vector2( 240, 360 )
