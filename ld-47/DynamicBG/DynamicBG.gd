@@ -14,7 +14,7 @@ var light_time_offset = 0
 var dark_time_offset = 0
 
 func on_life_lost():
-	$LightTween.interpolate_property(self, "light_y", light_y, light_y + life_lost_offset, life_lost_anim_dur, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	$LightTween.interpolate_property(self, "light_y", light_y, light_y + life_lost_offset - 10, life_lost_anim_dur, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$LightTween.start()
 	$DarkTween.interpolate_property(self, "dark_y", dark_y, dark_y + life_lost_offset, life_lost_anim_dur, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$DarkTween.start()

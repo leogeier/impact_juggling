@@ -13,7 +13,7 @@ func on_collected(ball):
 	ScoreTracker.add_score(value)
 	emit_signal("collected")
 	self.queue_free()
-	print("collected ", value)
+	Screenshake.start(0.2, 3)
 
 func _ready():
 	randomize()

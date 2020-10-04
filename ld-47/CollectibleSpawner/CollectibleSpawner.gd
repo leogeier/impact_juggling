@@ -13,7 +13,6 @@ func spawn_collectible():
 	
 	var offset = extent * Vector2(rand_range(-1, 1), rand_range(-1, 1))
 	collectible.position = position + offset
-	print("spawned col at", collectible.position)
 	
 	collectible.connect("collected", self, "on_collected")
 	get_tree().get_root().add_child(collectible)
@@ -32,4 +31,3 @@ func _process(delta):
 	   and $SpawnTimer.is_stopped():
 		var wait_time = randi() % (timer_max - timer_min) + timer_min
 		$SpawnTimer.start(wait_time)
-		print("spawning ocl in ", wait_time)
