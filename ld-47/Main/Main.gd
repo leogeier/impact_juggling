@@ -8,12 +8,16 @@ export var lives = 3
 var hearts = []
 
 func remove_life():
+	if !$InvincibilityTimer.is_stopped():
+		return
+	
 	lives -= 1
 	
 	if lives > 0:
 		hearts[lives].visible = false
 		Screenshake.start(.1, 4)
 		$LifeLostSound.play()
+		$InvincibilityTimer.start()
 		emit_signal("life_lost")
 	else:
 		hearts[0].visible = false
