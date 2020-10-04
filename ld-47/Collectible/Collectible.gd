@@ -3,6 +3,7 @@ extends Area2D
 var value
 var possible_values = [20, 50, 100]
 var is_collectable = false
+var was_collected = false
 var orig_pos
 var offset_dir = Vector2(1, 0)
 var offset_dist = 4
@@ -13,7 +14,7 @@ var ScorePopup = preload("res://ScorePopup/ScorePopup.tscn")
 signal collected
 
 func on_collected(ball):
-	if !ball.is_in_group("ball") or !is_collectable:
+	if !ball.is_in_group("ball") or !is_collectable or was_collected:
 		return
 	
 	ScoreTracker.add_score(value)
@@ -25,6 +26,7 @@ func on_collected(ball):
 	$CollectSound.play()
 	
 	emit_signal("collected")
+	was_collected = true
 	visible = false
 
 func remove():

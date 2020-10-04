@@ -35,7 +35,8 @@ shape = SubResource( 1 )
 [node name="FreeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="FreeArea"]
-polygon = PoolVector2Array( 52.3017, -100.186, 55.694, -1.45421, 33.5348, 126.854, -35.8216, 125.324, -63.4623, -2.27135, -60.4024, -102.736 )
+position = Vector2( 0, 0.359985 )
+polygon = PoolVector2Array( 52.3017, -100.186, 55.694, -1.45421, 26.932, 202.344, -37.5958, 196.684, -63.4623, -2.27135, -60.4024, -102.736 )
 
 [node name="CollectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
