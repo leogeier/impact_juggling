@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ld-47"
-run/main_scene="res://Main/Main.tscn"
+run/main_scene="res://MainMenu/MainMenu.tscn"
 boot_splash/image="res://other/splash.png"
 boot_splash/use_filter=false
 config/icon="res://icon.png"

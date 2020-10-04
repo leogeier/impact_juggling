@@ -5,8 +5,8 @@ export var max_speed = 5.8
 export var rot_speed = 0.05
 export var min_paddle_velocity = 3
 export var can_move = false
+export(Vector2) var velocity = Vector2()
 
-var velocity = Vector2()
 var rot_dir = 0
 
 var ScorePopup = preload("res://ScorePopup/ScorePopup.tscn")
