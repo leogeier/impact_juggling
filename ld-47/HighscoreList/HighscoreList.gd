@@ -74,7 +74,7 @@ func _ready():
 	$OwnRankRequest.connect("request_completed", self, "on_own_rank_received")
 	$MainMenu.connect("button_down", self, "on_main_menu")
 	
-	var top_scores_url = "http://localhost:3000/highscore?count=10"
+	var top_scores_url = "http://" + HighscoreConfig.domain + "/highscore?count=10"
 	$TopScoresRequest.request(top_scores_url)
 	
 	if ScoreTracker.id != null:

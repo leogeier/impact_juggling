@@ -161,8 +161,10 @@ __meta__ = {
 }
 
 [node name="TopScoresRequest" type="HTTPRequest" parent="."]
+timeout = 10
 
 [node name="OwnRankRequest" type="HTTPRequest" parent="."]
+timeout = 10
 
 [node name="SendingDotsTimer" type="Timer" parent="."]
 wait_time = 0.5

@@ -95,9 +95,9 @@ __meta__ = {
 }
 
 [node name="Highscores" type="Button" parent="."]
-margin_left = 43.0
+margin_left = 37.0
 margin_top = 261.0
-margin_right = 197.0
+margin_right = 204.0
 margin_bottom = 294.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
@@ -107,7 +107,7 @@ custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.203922, 0.00784314, 0.168627, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
-text = "Highsores"
+text = "Highscores"
 __meta__ = {
 "_edit_use_anchors_": false
 }

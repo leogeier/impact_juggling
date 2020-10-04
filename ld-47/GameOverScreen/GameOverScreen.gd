@@ -18,12 +18,12 @@ func on_submit():
 	var name = $Content/Name.text
 	var score = String(ScoreTracker.score)
 	var time = String(OS.get_unix_time())
-	var secret = "change_me"
+	var secret = HighscoreConfig.secret
 	var fingerprint = (name + score + time + secret).sha256_text()
 	
 	ScoreTracker.score_name = name
 	
-	var url = "http://localhost:3000/highscore?name=" + name + "&score=" + score + "&time=" + time + "&fingerprint=" + fingerprint
+	var url = "http://" + HighscoreConfig.domain + "/highscore?name=" + name + "&score=" + score + "&time=" + time + "&fingerprint=" + fingerprint
 	$SendHighscore.request(url, PoolStringArray(), true, HTTPClient.METHOD_POST)
 
 func on_sent_score(result, status_code, headers, body):

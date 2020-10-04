@@ -25,6 +25,7 @@ config/icon="res://icon.png"
 
 ScoreTracker="*res://Score/ScoreTracker.gd"
 Screenshake="*res://Main/Screenshake.gd"
+HighscoreConfig="*res://other/HighscoreConfig.gd"
 
 [display]
 
