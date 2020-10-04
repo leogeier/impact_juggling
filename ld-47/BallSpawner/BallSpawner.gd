@@ -31,6 +31,9 @@ func spawn_ball():
 	$BlinkTimer.start()
 
 func blink():
+	if !is_active:
+		return
+	
 	if blinks_left > 0:
 		if blinks_left % 2 == 1:
 			$BlinkSound.play()
