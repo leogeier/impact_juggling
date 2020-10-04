@@ -23,6 +23,12 @@ func on_life_lost():
 	$DarkTween.interpolate_property(self, "dark_y", dark_y, goal_dark_y, life_lost_anim_dur, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$DarkTween.start()
 
+func on_game_over():
+	$LightTween.interpolate_property(self, "light_y", light_y, 55, life_lost_anim_dur, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	$LightTween.start()
+	$DarkTween.interpolate_property(self, "dark_y", dark_y, 155, life_lost_anim_dur, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	$DarkTween.start()
+
 func _ready():
 	randomize()
 	light_y = $Light.position.y

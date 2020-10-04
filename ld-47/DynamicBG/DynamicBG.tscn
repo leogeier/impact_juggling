@@ -8,11 +8,11 @@
 script = ExtResource( 2 )
 
 [node name="Light" type="Sprite" parent="."]
-position = Vector2( 120, 373.197 )
+position = Vector2( 120, 372.54 )
 texture = ExtResource( 3 )
 
 [node name="Dark" type="Sprite" parent="."]
-position = Vector2( 120, 437.652 )
+position = Vector2( 119.344, 437.652 )
 texture = ExtResource( 1 )
 
 [node name="LightTween" type="Tween" parent="."]

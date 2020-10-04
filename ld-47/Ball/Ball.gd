@@ -11,6 +11,11 @@ var rot_dir = 0
 
 var ScorePopup = preload("res://ScorePopup/ScorePopup.tscn")
 
+func on_game_over():
+	can_move = false
+	$ScaleTween.interpolate_property(self, "scale", Vector2(1, 1), Vector2(), 0.4, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	$ScaleTween.start()
+
 func _ready():
 	randomize()
 	

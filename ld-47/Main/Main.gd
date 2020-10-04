@@ -1,6 +1,7 @@
 extends Node2D
 
 signal life_lost
+signal game_over
 
 export var lives = 3
 
@@ -8,16 +9,23 @@ var hearts = []
 
 func remove_life():
 	lives -= 1
-	emit_signal("life_lost")
 	
 	if lives > 0:
 		hearts[lives].visible = false
 		Screenshake.start(.1, 4)
 		$LifeLostSound.play()
+		emit_signal("life_lost")
 	else:
-		print("Game Over")
+		hearts[0].visible = false
 		$GameOverSound.play()
-	
+		
+		emit_signal("game_over")
+
+func drop_curtain():
+	var new_curtain_pos = $Curtain.position
+	new_curtain_pos.y = 200
+	$CurtainTween.interpolate_property($Curtain, "position", $Curtain.position, new_curtain_pos, 1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	$CurtainTween.start()
 
 func _ready():
 	$BallDetector.connect("ball_entered", $BallSpawner, "queue_ball")
@@ -25,6 +33,8 @@ func _ready():
 	ScoreTracker.reset_score()
 	hearts = [$Hearts/Heart1, $Hearts/Heart2, $Hearts/Heart3]
 	self.connect("life_lost", $DynamicBG, "on_life_lost")
+	self.connect("game_over", $DynamicBG, "on_game_over")
+	$GameOverSound.connect("finished", self, "drop_curtain")
 
 func _process(delta):
 	if Screenshake.active:

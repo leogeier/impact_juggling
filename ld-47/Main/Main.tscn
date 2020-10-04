@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DynamicBG/DynamicBG.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://sounds/game_over.wav" type="AudioStream" id=9]
 [ext_resource path="res://BallSpawner/BallSpawner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://CollectibleSpawner/CollectibleSpawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Main/curtain.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 320 )
@@ -21,7 +22,9 @@ extents = Vector2( 240, 10 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 240, 40 )
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=[
+"main",
+]]
 script = ExtResource( 6 )
 
 [node name="DynamicBG" parent="." instance=ExtResource( 2 )]
@@ -65,6 +68,9 @@ shape = SubResource( 3 )
 [node name="CollectibleSpawner" parent="." instance=ExtResource( 11 )]
 position = Vector2( 120, 50 )
 extent = Vector2( 80, 10 )
+collectible_node_path = NodePath("../Collectibles")
+
+[node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Hearts" type="Node2D" parent="."]
 
@@ -93,3 +99,10 @@ volume_db = -30.0
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -30.0
+
+[node name="Curtain" type="Sprite" parent="."]
+position = Vector2( 120.573, -200 )
+rotation = 3.14159
+texture = ExtResource( 12 )
+
+[node name="CurtainTween" type="Tween" parent="."]

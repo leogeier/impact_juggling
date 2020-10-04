@@ -43,3 +43,5 @@ volume_db = -30.0
 [node name="StrongHitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -30.0
+
+[node name="ScaleTween" type="Tween" parent="."]
