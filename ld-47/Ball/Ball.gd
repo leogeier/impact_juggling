@@ -4,6 +4,7 @@ export var gravity = 4.5
 export var max_speed = 5.8
 export var rot_speed = 0.05
 export var min_paddle_velocity = 3
+export var can_move = false
 
 var velocity = Vector2()
 var rot_dir = 0
@@ -32,6 +33,9 @@ func reflect(dir, damp, is_paddle):
 	rot_dir *= -1
 
 func _physics_process(delta):
+	if !can_move:
+		return
+	
 	var collision = move_and_collide(velocity)
 	
 	rotation += rot_dir * rot_speed
