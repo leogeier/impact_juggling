@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://MainMenu/title.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Score/vcr.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Wall/Wall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sounds/spawn.wav" type="AudioStream" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.388235, 0, 0.184314, 1 )
@@ -149,3 +150,7 @@ normal = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
 shape = SubResource( 6 )
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -30.0

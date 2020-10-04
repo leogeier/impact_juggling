@@ -23,8 +23,9 @@ func on_submit():
 	
 	ScoreTracker.score_name = name
 	
-	var url = "http://" + HighscoreConfig.domain + "/highscore?name=" + name + "&score=" + score + "&time=" + time + "&fingerprint=" + fingerprint
+	var url = "https://" + HighscoreConfig.domain + "/highscore?name=" + name + "&score=" + score + "&time=" + time + "&fingerprint=" + fingerprint
 	$SendHighscore.request(url, PoolStringArray(), true, HTTPClient.METHOD_POST)
+	$ButtonSound.play()
 
 func on_sent_score(result, status_code, headers, body):
 	if result != HTTPRequest.RESULT_SUCCESS:
@@ -43,6 +44,7 @@ func on_sent_score(result, status_code, headers, body):
 	get_tree().change_scene("res://HighscoreList/HighscoreList.tscn")
 
 func on_main_menu():
+	$ButtonSound.play()
 	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
 
 func update_sending_dots():

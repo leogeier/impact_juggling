@@ -7,9 +7,11 @@ var orig_pos
 var dir = Vector2(0, 1)
 
 func on_play():
+	$ButtonSound.play()
 	get_tree().change_scene("res://Main/Main.tscn")
 
 func on_highscore():
+	$ButtonSound.play()
 	get_tree().change_scene("res://HighscoreList/HighscoreList.tscn")
 
 func _ready():

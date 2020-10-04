@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://HighscoreList/HighscoreList.gd" type="Script" id=1]
 [ext_resource path="res://Score/vcr.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ScorePopup/vcr_popup.tres" type="DynamicFont" id=3]
+[ext_resource path="res://sounds/spawn.wav" type="AudioStream" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.388235, 0, 0.184314, 1 )
@@ -187,3 +188,7 @@ text = "Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -30.0

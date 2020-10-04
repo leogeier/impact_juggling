@@ -66,6 +66,7 @@ func on_own_rank_received(result, status_code, headers, body):
 	$Own.visible = true
 
 func on_main_menu():
+	$ButtonSound.play()
 	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
 
 func _ready():
@@ -74,9 +75,9 @@ func _ready():
 	$OwnRankRequest.connect("request_completed", self, "on_own_rank_received")
 	$MainMenu.connect("button_down", self, "on_main_menu")
 	
-	var top_scores_url = "http://" + HighscoreConfig.domain + "/highscore?count=10"
+	var top_scores_url = "https://" + HighscoreConfig.domain + "/highscore?count=10"
 	$TopScoresRequest.request(top_scores_url)
 	
 	if ScoreTracker.id != null:
-		var own_score_url = "http://localhost:3000/rank?id=" + String(ScoreTracker.id)
+		var own_score_url = "https://" + HighscoreConfig.domain + "/rank?id=" + String(ScoreTracker.id)
 		$OwnRankRequest.request(own_score_url)

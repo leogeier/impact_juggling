@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GameOverScreen/GameOverScreen.gd" type="Script" id=1]
 [ext_resource path="res://ScorePopup/vcr_popup.tres" type="DynamicFont" id=2]
 [ext_resource path="res://sounds/collectible.wav" type="AudioStream" id=3]
 [ext_resource path="res://Score/vcr.tres" type="DynamicFont" id=4]
+[ext_resource path="res://sounds/spawn.wav" type="AudioStream" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -87,6 +88,7 @@ stream = ExtResource( 3 )
 volume_db = -30.0
 
 [node name="Content" type="Node2D" parent="."]
+visible = false
 
 [node name="Score" type="Label" parent="Content"]
 margin_left = 84.3889
@@ -198,3 +200,7 @@ wait_time = 0.5
 
 [node name="SendHighscore" type="HTTPRequest" parent="."]
 timeout = 10
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -30.0
