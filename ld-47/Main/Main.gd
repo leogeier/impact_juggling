@@ -27,6 +27,9 @@ func drop_curtain():
 	$CurtainTween.interpolate_property($Curtain, "position", $Curtain.position, new_curtain_pos, 1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$CurtainTween.start()
 
+func change_to_game_over_screen():
+	get_tree().change_scene("res://GameOverScreen/GameOverScreen.tscn")
+
 func _ready():
 	$BallDetector.connect("ball_entered", $BallSpawner, "queue_ball")
 	$BallDetector.connect("ball_entered", self, "remove_life")
@@ -35,6 +38,7 @@ func _ready():
 	self.connect("life_lost", $DynamicBG, "on_life_lost")
 	self.connect("game_over", $DynamicBG, "on_game_over")
 	$GameOverSound.connect("finished", self, "drop_curtain")
+	$CurtainTween.connect("tween_all_completed", self, "change_to_game_over_screen")
 
 func _process(delta):
 	if Screenshake.active:
