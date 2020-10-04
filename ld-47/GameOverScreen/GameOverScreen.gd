@@ -1,6 +1,7 @@
 extends Node2D
 
 var style = StyleBoxFlat.new()
+var dot_count = 0
 
 func on_reveal():
 	$Content.visible = true
@@ -9,17 +10,50 @@ func on_reveal():
 func on_text_change(new_text):
 	$Content/Submit.disabled = new_text == ""
 
+func on_submit():
+	$Content/SendingDesc.visible = true
+	$Content/Submit.visible = false
+	$SendingDotsTimer.start()
+	
+	var name = $Content/Name.text
+	var score = String(ScoreTracker.score)
+	var time = String(OS.get_unix_time())
+	var secret = "change_me"
+	var fingerprint = (name + score + time + secret).sha256_text()
+	
+	var url = "http://localhost:3000/highscore?name=" + name + "&score=" + score + "&time=" + time + "&fingerprint=" + fingerprint
+	$SendHighscore.request(url, PoolStringArray(), true, HTTPClient.METHOD_POST)
+
+func on_sent_score(result, status_code, headers, body):
+	if result != HTTPRequest.RESULT_SUCCESS:
+		$SendingDotsTimer.stop()
+		$Content/SendingDesc.text = "Failed with " + String(result) + ", sorry :("
+	
+	if status_code > 299:
+		$SendingDotsTimer.stop()
+		$Content/SendingDesc.text = "Received " + String(status_code) + ", sorry :("
+	
+	print("show highscore")
+
+func update_sending_dots():
+	dot_count = (dot_count + 1) % 4
+	
+	var text = "Sending"
+	for i in range(dot_count):
+		text += "."
+	
+	$Content/SendingDesc.text = text
+
 func _ready():
 	randomize()
 	
 	$Content/Score.text = String(ScoreTracker.score)
 	$RevealTimer.connect("timeout", self, "on_reveal")
 	$Content/Name.connect("text_changed", self, "on_text_change")
+	$Content/Submit.connect("button_down", self, "on_submit")
+	$SendingDotsTimer.connect("timeout", self, "update_sending_dots")
+	$SendHighscore.connect("request_completed", self, "on_sent_score")
 	
-	#var name = ""
-	#for i in range(5):
-	#	name = name + String(randi() % 10)
-	#$Content/Name.text = name
 	$Content/Name.grab_focus()
 	
 	style.bg_color = (Color(0, 1, 1, 1))

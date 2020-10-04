@@ -87,7 +87,6 @@ stream = ExtResource( 3 )
 volume_db = -30.0
 
 [node name="Content" type="Node2D" parent="."]
-visible = false
 
 [node name="Score" type="Label" parent="Content"]
 margin_left = 84.3889
@@ -163,6 +162,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SendingDesc" type="Label" parent="Content"]
+visible = false
+margin_left = 5.0
+margin_top = 183.0
+margin_right = 233.0
+margin_bottom = 198.0
+custom_fonts/font = ExtResource( 4 )
+text = "Sending"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MainMenu" type="Button" parent="Content"]
 margin_left = 37.0
 margin_top = 263.0
@@ -180,3 +192,9 @@ text = "Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SendingDotsTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="SendHighscore" type="HTTPRequest" parent="."]
+timeout = 10
