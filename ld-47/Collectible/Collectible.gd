@@ -32,7 +32,7 @@ func _process(delta):
 	if !is_collectable:
 		is_collectable = true
 		visible = true
-		for body in self.get_overlapping_bodies():
+		for body in $FreeArea.get_overlapping_bodies():
 			if body.is_in_group("ball"):
 				is_collectable = false
 				visible = false
