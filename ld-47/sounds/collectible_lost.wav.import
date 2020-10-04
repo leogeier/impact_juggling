@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/collectible_lost.wav-c8faf686cb83d17ca71833f9dd4db852.sample"
+
+[deps]
+
+source_file="res://sounds/collectible_lost.wav"
+dest_files=[ "res://.import/collectible_lost.wav-c8faf686cb83d17ca71833f9dd4db852.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

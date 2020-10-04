@@ -108,5 +108,4 @@ texture = ExtResource( 12 )
 [node name="CurtainTween" type="Tween" parent="."]
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true

@@ -46,3 +46,7 @@ volume_db = -30.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallDetectorArea"]
 position = Vector2( -0.465977, -39.3419 )
 shape = SubResource( 2 )
+
+[node name="PauseTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

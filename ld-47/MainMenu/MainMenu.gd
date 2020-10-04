@@ -22,4 +22,7 @@ func _process(delta):
 	dir = dir.rotated(rot_speed * delta)
 	$title.position = orig_pos + dir * offset
 	
+	var s = sin(OS.get_ticks_msec() * 0.002) * 0.02
+	$title.scale = Vector2(1 + s, 1 + s)
+	
 	$title.rotation = sin(OS.get_ticks_msec() * 0.005) * 0.05

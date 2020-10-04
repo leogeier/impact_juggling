@@ -12,6 +12,7 @@ var rot_speed = 0.05
 var ScorePopup = preload("res://ScorePopup/ScorePopup.tscn")
 
 signal collected
+signal not_collected
 
 func on_collected(ball):
 	if !ball.is_in_group("ball") or !is_collectable or was_collected:
@@ -29,6 +30,13 @@ func on_collected(ball):
 	was_collected = true
 	visible = false
 
+func not_collected():
+	emit_signal("not_collected")
+	Screenshake.start(1, 4)
+	$LostSound.play()
+	was_collected = true
+	visible = false
+
 func remove():
 	self.queue_free()
 
@@ -38,9 +46,12 @@ func _ready():
 	$Visible/Label.text = String(value)
 	self.connect("body_entered", self, "on_collected")
 	$CollectSound.connect("finished", self, "remove")
+	$LostSound.connect("finished", self, "remove")
+	$Visible/AnimatedSprite.connect("animation_finished", self, "not_collected")
 	orig_pos = $Visible.position
 	if randi() % 2 == 0:
 		rot_speed *= -1
+	$Visible/AnimatedSprite.play()
 
 func _process(delta):
 	if !is_collectable:
