@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 93.6709
+margin_top = 82.9657
+margin_right = 133.671
+margin_bottom = 96.9657
+text = "lol"
+__meta__ = {
+"_edit_use_anchors_": false
+}
