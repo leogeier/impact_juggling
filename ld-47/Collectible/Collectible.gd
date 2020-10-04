@@ -4,6 +4,8 @@ var value
 var possible_values = [20, 50, 100]
 var is_collectable = false
 
+var ScorePopup = preload("res://ScorePopup/ScorePopup.tscn")
+
 signal collected
 
 func on_collected(ball):
@@ -11,9 +13,15 @@ func on_collected(ball):
 		return
 	
 	ScoreTracker.add_score(value)
+	Screenshake.start(0.2, 3)
+	
+	var popup = ScorePopup.instance()
+	get_tree().get_root().add_child(popup)
+	popup.launch(value, position, Vector2(0, 1).rotated(rand_range(-.5, .5)))
+	
 	emit_signal("collected")
 	self.queue_free()
-	Screenshake.start(0.2, 3)
+	
 
 func _ready():
 	randomize()
