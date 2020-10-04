@@ -8,11 +8,16 @@ var hearts = []
 
 func remove_life():
 	lives -= 1
-	hearts[lives].visible = false
-	Screenshake.start(.1, 4)
 	emit_signal("life_lost")
-	if lives == 0:
+	
+	if lives > 0:
+		hearts[lives].visible = false
+		Screenshake.start(.1, 4)
+		$LifeLostSound.play()
+	else:
 		print("Game Over")
+		$GameOverSound.play()
+	
 
 func _ready():
 	$BallDetector.connect("ball_entered", $BallSpawner, "queue_ball")

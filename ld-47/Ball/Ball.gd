@@ -52,6 +52,9 @@ func _physics_process(delta):
 			var popup = ScorePopup.instance()
 			get_tree().get_root().add_child(popup)
 			popup.launch(10, position, Vector2(0, -1).rotated(rand_range(-.3, .3)))
+			$StrongHitSound.play()
+		$HitSound.pitch_scale = rand_range(0.5, 2.5)
+		$HitSound.play()
 			
 		if collided_with_paddle:
 			Screenshake.start(.1, 3)

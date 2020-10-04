@@ -22,16 +22,20 @@ func on_collected(ball):
 	var popup = ScorePopup.instance()
 	get_tree().get_root().add_child(popup)
 	popup.launch(value, position, Vector2(0, 1).rotated(rand_range(-.5, .5)))
+	$CollectSound.play()
 	
 	emit_signal("collected")
+	visible = false
+
+func remove():
 	self.queue_free()
-	
 
 func _ready():
 	randomize()
 	value = possible_values[randi() % possible_values.size()]
 	$Visible/Label.text = String(value)
 	self.connect("body_entered", self, "on_collected")
+	$CollectSound.connect("finished", self, "remove")
 	orig_pos = $Visible.position
 	if randi() % 2 == 0:
 		rot_speed *= -1

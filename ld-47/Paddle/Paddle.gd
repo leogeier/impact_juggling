@@ -42,6 +42,15 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("fire"):
+		var ball_detected = false
+		for body in $BallDetectorArea.get_overlapping_bodies():
+			if body.is_in_group("ball"):
+				ball_detected = true
+				break
+		if !ball_detected:
+			$ThrowSound.pitch_scale = rand_range(0.5, 2.5)
+			$ThrowSound.play()
+		
 		$ThrowTimer.start();
 		$ReturnTween.interpolate_property(self, "icon_pos_y", icon_orig_y + throw_offset, icon_orig_y, paddle_throw_time, Tween.TRANS_CIRC, Tween.EASE_OUT)
 		$ReturnTween.start()

@@ -24,10 +24,13 @@ func spawn_ball():
 	get_tree().get_root().add_child(cur_ball)
 	
 	blinks_left = blink_count
+	$BlinkSound.play()
 	$BlinkTimer.start()
 
 func blink():
 	if blinks_left > 0:
+		if blinks_left % 2 == 1:
+			$BlinkSound.play()
 		blinks_left -= 1
 		cur_ball.visible = !cur_ball.visible
 		$BlinkTimer.start()

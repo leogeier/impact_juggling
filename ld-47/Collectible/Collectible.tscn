@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Collectible/Collectible.gd" type="Script" id=1]
 [ext_resource path="res://Collectible/Collectible.png" type="Texture" id=2]
 [ext_resource path="res://Score/vcr.tres" type="DynamicFont" id=3]
+[ext_resource path="res://sounds/collectible.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.4616
@@ -35,3 +36,7 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="FreeArea"]
 polygon = PoolVector2Array( 52.3017, -100.186, 55.694, -1.45421, 33.5348, 126.854, -35.8216, 125.324, -63.4623, -2.27135, -60.4024, -102.736 )
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -30.0
