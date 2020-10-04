@@ -8,6 +8,7 @@
 extents = Vector2( 25.6502, 6.52312 )
 
 [node name="Paddle" type="KinematicBody2D" groups=[
+"paddle",
 "reflectable",
 ]]
 collision_layer = 2

@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 ScoreTracker="*res://Score/ScoreTracker.gd"
+Screenshake="*res://Main/Screenshake.gd"
 
 [display]
 

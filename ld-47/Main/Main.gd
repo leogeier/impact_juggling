@@ -7,6 +7,7 @@ var hearts = []
 func remove_life():
 	lives -= 1
 	hearts[lives].visible = false
+	Screenshake.start(.1, 4)
 	if lives == 0:
 		print("Game Over")
 
@@ -15,3 +16,9 @@ func _ready():
 	$BallDetector.connect("ball_entered", self, "remove_life")
 	ScoreTracker.reset_score()
 	hearts = [$Hearts/Heart1, $Hearts/Heart2, $Hearts/Heart3]
+
+func _process(delta):
+	if Screenshake.active:
+		position = Vector2(rand_range(-1,1),rand_range(-1,1)) * Screenshake.strength
+	else:
+		position = Vector2(0,0)

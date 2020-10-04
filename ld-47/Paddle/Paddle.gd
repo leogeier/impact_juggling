@@ -12,6 +12,7 @@ var icon_rot setget set_icon_rot
 var velocity = Vector2()
 var throw_offset = -20
 var icon_orig_y
+var orig_y
 
 func set_icon_pos_y(val):
 	$icon.position.y = val
@@ -36,6 +37,7 @@ func throw_timer_end():
 func _ready():
 	$ThrowTimer.connect("timeout", self, "throw_timer_end")
 	icon_orig_y = $icon.position.y
+	orig_y = position.y
 	$ThrowTimer.wait_time = paddle_throw_time
 
 func _physics_process(delta):
@@ -55,3 +57,4 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	move_and_collide(velocity * delta)
+	position.y = orig_y
