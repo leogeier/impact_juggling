@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var gravity = 4.5
-export var max_speed = 6
+export var max_speed = 5.8
 export var rot_speed = 0.05
 export var min_paddle_velocity = 3
 
