@@ -8,6 +8,8 @@ export var min_paddle_velocity = 3
 var velocity = Vector2()
 var rot_dir = 0
 
+var ScorePopup = preload("res://ScorePopup/ScorePopup.tscn")
+
 func _ready():
 	randomize()
 	
@@ -43,6 +45,9 @@ func _physics_process(delta):
 		
 		if damp > 1:
 			ScoreTracker.add_score(10)
+			var popup = ScorePopup.instance()
+			get_tree().get_root().add_child(popup)
+			popup.launch(10, position, Vector2(0, -1).rotated(rand_range(-.3, .3)))
 			
 		if collided_with_paddle:
 			Screenshake.start(.1, 3)

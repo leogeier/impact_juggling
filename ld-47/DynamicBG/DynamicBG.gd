@@ -18,9 +18,6 @@ func on_life_lost():
 	$LightTween.start()
 	$DarkTween.interpolate_property(self, "dark_y", dark_y, dark_y + life_lost_offset, life_lost_anim_dur, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$DarkTween.start()
-	
-	#light_y += life_lost_offset
-	#dark_y += life_lost_offset
 
 func _ready():
 	randomize()
