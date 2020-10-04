@@ -3,6 +3,10 @@ extends Area2D
 var value
 var possible_values = [20, 50, 100]
 var is_collectable = false
+var orig_pos
+var offset_dir = Vector2(1, 0)
+var offset_dist = 4
+var rot_speed = 0.05
 
 var ScorePopup = preload("res://ScorePopup/ScorePopup.tscn")
 
@@ -26,7 +30,11 @@ func on_collected(ball):
 func _ready():
 	randomize()
 	value = possible_values[randi() % possible_values.size()]
+	$Visible/Label.text = String(value)
 	self.connect("body_entered", self, "on_collected")
+	orig_pos = $Visible.position
+	if randi() % 2 == 0:
+		rot_speed *= -1
 
 func _process(delta):
 	if !is_collectable:
@@ -37,5 +45,7 @@ func _process(delta):
 				is_collectable = false
 				visible = false
 				break
-		
+	
+	offset_dir = offset_dir.rotated(rot_speed)
+	$Visible.position = orig_pos + offset_dir * offset_dist
 

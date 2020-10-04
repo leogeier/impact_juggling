@@ -1,17 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Collectible/Collectible.gd" type="Script" id=1]
 [ext_resource path="res://Collectible/Collectible.png" type="Texture" id=2]
+[ext_resource path="res://Score/vcr.tres" type="DynamicFont" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 14.5516
+radius = 20.4616
 
 [node name="Collectible" type="Area2D"]
 script = ExtResource( 1 )
 
-[node name="Collectible" type="Sprite" parent="."]
-scale = Vector2( 0.578568, 0.578568 )
+[node name="Visible" type="Node2D" parent="."]
+
+[node name="Collectible" type="Sprite" parent="Visible"]
 texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Visible"]
+margin_left = -20.355
+margin_top = -8.66554
+margin_right = 19.645
+margin_bottom = 6.33446
+custom_fonts/font = ExtResource( 3 )
+text = "000"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -19,4 +34,4 @@ shape = SubResource( 1 )
 [node name="FreeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="FreeArea"]
-polygon = PoolVector2Array( 0.183105, -55.7923, 25.2021, -52.665, 49.8302, -40.5464, 55.694, -1.45421, 29.384, 109.79, -28.7856, 109.939, -52.2004, -1.84513, -46.3366, -39.3736, -22.0994, -55.0105 )
+polygon = PoolVector2Array( 52.3017, -100.186, 55.694, -1.45421, 33.5348, 126.854, -35.8216, 125.324, -63.4623, -2.27135, -60.4024, -102.736 )
